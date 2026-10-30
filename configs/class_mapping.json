@@ -1,0 +1,745 @@
+{
+  "version": "1.0.0",
+  "description": "Authoritative 46-class taxonomy. Index order = model output order. Indices 0-37 keep the original alphabetical PlantVillage order of the supplied 38-class model.",
+  "num_classes": 46,
+  "label_normalisation": "For non-PlantVillage sources, a source folder name is normalised (lowercase, every run of non-alphanumeric characters -> '_', trimmed) and must EXACTLY equal one alias. PlantVillage folder names must match the class key exactly.",
+  "ambiguous_source_labels": {
+    "_comment": "Normalised source labels that are deliberately NOT mapped because they cannot be assigned to exactly one class without extra evidence.",
+    "wheat_wfd": [
+      "rust",
+      "wheat_rust",
+      "rusts",
+      "mildew",
+      "blight",
+      "spot",
+      "leaf_spot",
+      "disease",
+      "diseased",
+      "unhealthy"
+    ],
+    "rice_mendeley": [
+      "blight",
+      "spot",
+      "leaf_spot",
+      "disease",
+      "diseased",
+      "unhealthy",
+      "leaf_blight"
+    ]
+  },
+  "known_unsupported_source_labels": {
+    "_comment": "Labels seen in public wheat/rice datasets that are outside the 46 classes. They are excluded (never relabelled) and reported. Not exhaustive; any unknown label is excluded too.",
+    "wheat_long_2023": [
+      "septoria"
+    ],
+    "wheat_wfd": [
+      "septoria",
+      "fusarium",
+      "fusarium_head_blight",
+      "smut",
+      "tan_spot",
+      "mite",
+      "black_chaff",
+      "stem_rust",
+      "stem_fly",
+      "aphid",
+      "bacterial_leaf_streak",
+      "common_root_rot",
+      "take_all",
+      "loose_smut",
+      "leaf_blotch",
+      "blotch"
+    ],
+    "rice_mendeley": [
+      "tungro",
+      "leaf_smut",
+      "hispa",
+      "sheath_blight",
+      "narrow_brown_spot",
+      "false_smut",
+      "neck_blast",
+      "sheath_rot",
+      "stem_rot",
+      "downy_mildew"
+    ]
+  },
+  "classes": [
+    {
+      "index": 0,
+      "key": "Apple___Apple_scab",
+      "group": "plantvillage",
+      "plant": "Apple",
+      "condition": "Apple Scab",
+      "display_name": "Apple — Apple Scab",
+      "is_healthy": false,
+      "source_labels": {
+        "plantvillage": [
+          "Apple___Apple_scab"
+        ]
+      }
+    },
+    {
+      "index": 1,
+      "key": "Apple___Black_rot",
+      "group": "plantvillage",
+      "plant": "Apple",
+      "condition": "Black Rot",
+      "display_name": "Apple — Black Rot",
+      "is_healthy": false,
+      "source_labels": {
+        "plantvillage": [
+          "Apple___Black_rot"
+        ]
+      }
+    },
+    {
+      "index": 2,
+      "key": "Apple___Cedar_apple_rust",
+      "group": "plantvillage",
+      "plant": "Apple",
+      "condition": "Cedar Apple Rust",
+      "display_name": "Apple — Cedar Apple Rust",
+      "is_healthy": false,
+      "source_labels": {
+        "plantvillage": [
+          "Apple___Cedar_apple_rust"
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "key": "Apple___healthy",
+      "group": "plantvillage",
+      "plant": "Apple",
+      "condition": "Healthy",
+      "display_name": "Apple — Healthy",
+      "is_healthy": true,
+      "source_labels": {
+        "plantvillage": [
+          "Apple___healthy"
+        ]
+      }
+    },
+    {
+      "index": 4,
+      "key": "Blueberry___healthy",
+      "group": "plantvillage",
+      "plant": "Blueberry",
+      "condition": "Healthy",
+      "display_name": "Blueberry — Healthy",
+      "is_healthy": true,
+      "source_labels": {
+        "plantvillage": [
+          "Blueberry___healthy"
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "key": "Cherry_(including_sour)___Powdery_mildew",
+      "group": "plantvillage",
+      "plant": "Cherry",
+      "condition": "Powdery Mildew",
+      "display_name": "Cherry — Powdery Mildew",
+      "is_healthy": false,
+      "source_labels": {
+        "plantvillage": [
+          "Cherry_(including_sour)___Powdery_mildew"
+        ]
+      }
+    },
+    {
+      "index": 6,
+      "key": "Cherry_(including_sour)___healthy",
+      "group": "plantvillage",
+      "plant": "Cherry",
+      "condition": "Healthy",
+      "display_name": "Cherry — Healthy",
+      "is_healthy": true,
+      "source_labels": {
+        "plantvillage": [
+          "Cherry_(including_sour)___healthy"
+        ]
+      }
+    },
+    {
+      "index": 7,
+      "key": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "group": "plantvillage",
+      "plant": "Corn (Maize)",
+      "condition": "Cercospora Leaf Spot / Gray Leaf Spot",
+      "display_name": "Corn (Maize) — Cercospora Leaf Spot / Gray Leaf Spot",
+      "is_healthy": false,
+      "source_labels": {
+        "plantvillage": [
+          "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot"
+        ]
+      }
+    },
+    {
+      "index": 8,
+      "key": "Corn_(maize)___Common_rust_",
+      "group": "plantvillage",
+      "plant": "Corn (Maize)",
+      "condition": "Common Rust",
+      "display_name": "Corn (Maize) — Common Rust",
+      "is_healthy": false,
+      "source_labels": {
+        "plantvillage": [
+          "Corn_(maize)___Common_rust_"
+        ]
+      }
+    },
+    {
+      "index": 9,
+      "key": "Corn_(maize)___Northern_Leaf_Blight",
+      "group": "plantvillage",
+      "plant": "Corn (Maize)",
+      "condition": "Northern Leaf Blight",
+      "display_name": "Corn (Maize) — Northern Leaf Blight",
+      "is_healthy": false,
+      "source_labels": {
+        "plantvillage": [
+          "Corn_(maize)___Northern_Leaf_Blight"
+        ]
+      }
+    },
+    {
+      "index": 10,
+      "key": "Corn_(maize)___healthy",
+      "group": "plantvillage",
+      "plant": "Corn (Maize)",
+      "condition": "Healthy",
+      "display_name": "Corn (Maize) — Healthy",
+      "is_healthy": true,
+      "source_labels": {
+        "plantvillage": [
+          "Corn_(maize)___healthy"
+        ]
+      }
+    },
+    {
+      "index": 11,
+      "key": "Grape___Black_rot",
+      "group": "plantvillage",
+      "plant": "Grape",
+      "condition": "Black Rot",
+      "display_name": "Grape — Black Rot",
+      "is_healthy": false,
+      "source_labels": {
+        "plantvillage": [
+          "Grape___Black_rot"
+        ]
+      }
+    },
+    {
+      "index": 12,
+      "key": "Grape___Esca_(Black_Measles)",
+      "group": "plantvillage",
+      "plant": "Grape",
+      "condition": "Esca (Black Measles)",
+      "display_name": "Grape — Esca (Black Measles)",
+      "is_healthy": false,
+      "source_labels": {
+        "plantvillage": [
+          "Grape___Esca_(Black_Measles)"
+        ]
+      }
+    },
+    {
+      "index": 13,
+      "key": "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
+      "group": "plantvillage",
+      "plant": "Grape",
+      "condition": "Leaf Blight (Isariopsis Leaf Spot)",
+      "display_name": "Grape — Leaf Blight (Isariopsis Leaf Spot)",
+      "is_healthy": false,
+      "source_labels": {
+        "plantvillage": [
+          "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)"
+        ]
+      }
+    },
+    {
+      "index": 14,
+      "key": "Grape___healthy",
+      "group": "plantvillage",
+      "plant": "Grape",
+      "condition": "Healthy",
+      "display_name": "Grape — Healthy",
+      "is_healthy": true,
+      "source_labels": {
+        "plantvillage": [
+          "Grape___healthy"
+        ]
+      }
+    },
+    {
+      "index": 15,
+      "key": "Orange___Haunglongbing_(Citrus_greening)",
+      "group": "plantvillage",
+      "plant": "Orange",
+      "condition": "Huanglongbing (Citrus Greening)",
+      "display_name": "Orange — Huanglongbing (Citrus Greening)",
+      "is_healthy": false,
+      "source_labels": {
+        "plantvillage": [
+          "Orange___Haunglongbing_(Citrus_greening)"
+        ]
+      }
+    },
+    {
+      "index": 16,
+      "key": "Peach___Bacterial_spot",
+      "group": "plantvillage",
+      "plant": "Peach",
+      "condition": "Bacterial Spot",
+      "display_name": "Peach — Bacterial Spot",
+      "is_healthy": false,
+      "source_labels": {
+        "plantvillage": [
+          "Peach___Bacterial_spot"
+        ]
+      }
+    },
+    {
+      "index": 17,
+      "key": "Peach___healthy",
+      "group": "plantvillage",
+      "plant": "Peach",
+      "condition": "Healthy",
+      "display_name": "Peach — Healthy",
+      "is_healthy": true,
+      "source_labels": {
+        "plantvillage": [
+          "Peach___healthy"
+        ]
+      }
+    },
+    {
+      "index": 18,
+      "key": "Pepper,_bell___Bacterial_spot",
+      "group": "plantvillage",
+      "plant": "Pepper (Bell)",
+      "condition": "Bacterial Spot",
+      "display_name": "Pepper (Bell) — Bacterial Spot",
+      "is_healthy": false,
+      "source_labels": {
+        "plantvillage": [
+          "Pepper,_bell___Bacterial_spot"
+        ]
+      }
+    },
+    {
+      "index": 19,
+      "key": "Pepper,_bell___healthy",
+      "group": "plantvillage",
+      "plant": "Pepper (Bell)",
+      "condition": "Healthy",
+      "display_name": "Pepper (Bell) — Healthy",
+      "is_healthy": true,
+      "source_labels": {
+        "plantvillage": [
+          "Pepper,_bell___healthy"
+        ]
+      }
+    },
+    {
+      "index": 20,
+      "key": "Potato___Early_blight",
+      "group": "plantvillage",
+      "plant": "Potato",
+      "condition": "Early Blight",
+      "display_name": "Potato — Early Blight",
+      "is_healthy": false,
+      "source_labels": {
+        "plantvillage": [
+          "Potato___Early_blight"
+        ]
+      }
+    },
+    {
+      "index": 21,
+      "key": "Potato___Late_blight",
+      "group": "plantvillage",
+      "plant": "Potato",
+      "condition": "Late Blight",
+      "display_name": "Potato — Late Blight",
+      "is_healthy": false,
+      "source_labels": {
+        "plantvillage": [
+          "Potato___Late_blight"
+        ]
+      }
+    },
+    {
+      "index": 22,
+      "key": "Potato___healthy",
+      "group": "plantvillage",
+      "plant": "Potato",
+      "condition": "Healthy",
+      "display_name": "Potato — Healthy",
+      "is_healthy": true,
+      "source_labels": {
+        "plantvillage": [
+          "Potato___healthy"
+        ]
+      }
+    },
+    {
+      "index": 23,
+      "key": "Raspberry___healthy",
+      "group": "plantvillage",
+      "plant": "Raspberry",
+      "condition": "Healthy",
+      "display_name": "Raspberry — Healthy",
+      "is_healthy": true,
+      "source_labels": {
+        "plantvillage": [
+          "Raspberry___healthy"
+        ]
+      }
+    },
+    {
+      "index": 24,
+      "key": "Soybean___healthy",
+      "group": "plantvillage",
+      "plant": "Soybean",
+      "condition": "Healthy",
+      "display_name": "Soybean — Healthy",
+      "is_healthy": true,
+      "source_labels": {
+        "plantvillage": [
+          "Soybean___healthy"
+        ]
+      }
+    },
+    {
+      "index": 25,
+      "key": "Squash___Powdery_mildew",
+      "group": "plantvillage",
+      "plant": "Squash",
+      "condition": "Powdery Mildew",
+      "display_name": "Squash — Powdery Mildew",
+      "is_healthy": false,
+      "source_labels": {
+        "plantvillage": [
+          "Squash___Powdery_mildew"
+        ]
+      }
+    },
+    {
+      "index": 26,
+      "key": "Strawberry___Leaf_scorch",
+      "group": "plantvillage",
+      "plant": "Strawberry",
+      "condition": "Leaf Scorch",
+      "display_name": "Strawberry — Leaf Scorch",
+      "is_healthy": false,
+      "source_labels": {
+        "plantvillage": [
+          "Strawberry___Leaf_scorch"
+        ]
+      }
+    },
+    {
+      "index": 27,
+      "key": "Strawberry___healthy",
+      "group": "plantvillage",
+      "plant": "Strawberry",
+      "condition": "Healthy",
+      "display_name": "Strawberry — Healthy",
+      "is_healthy": true,
+      "source_labels": {
+        "plantvillage": [
+          "Strawberry___healthy"
+        ]
+      }
+    },
+    {
+      "index": 28,
+      "key": "Tomato___Bacterial_spot",
+      "group": "plantvillage",
+      "plant": "Tomato",
+      "condition": "Bacterial Spot",
+      "display_name": "Tomato — Bacterial Spot",
+      "is_healthy": false,
+      "source_labels": {
+        "plantvillage": [
+          "Tomato___Bacterial_spot"
+        ]
+      }
+    },
+    {
+      "index": 29,
+      "key": "Tomato___Early_blight",
+      "group": "plantvillage",
+      "plant": "Tomato",
+      "condition": "Early Blight",
+      "display_name": "Tomato — Early Blight",
+      "is_healthy": false,
+      "source_labels": {
+        "plantvillage": [
+          "Tomato___Early_blight"
+        ]
+      }
+    },
+    {
+      "index": 30,
+      "key": "Tomato___Late_blight",
+      "group": "plantvillage",
+      "plant": "Tomato",
+      "condition": "Late Blight",
+      "display_name": "Tomato — Late Blight",
+      "is_healthy": false,
+      "source_labels": {
+        "plantvillage": [
+          "Tomato___Late_blight"
+        ]
+      }
+    },
+    {
+      "index": 31,
+      "key": "Tomato___Leaf_Mold",
+      "group": "plantvillage",
+      "plant": "Tomato",
+      "condition": "Leaf Mold",
+      "display_name": "Tomato — Leaf Mold",
+      "is_healthy": false,
+      "source_labels": {
+        "plantvillage": [
+          "Tomato___Leaf_Mold"
+        ]
+      }
+    },
+    {
+      "index": 32,
+      "key": "Tomato___Septoria_leaf_spot",
+      "group": "plantvillage",
+      "plant": "Tomato",
+      "condition": "Septoria Leaf Spot",
+      "display_name": "Tomato — Septoria Leaf Spot",
+      "is_healthy": false,
+      "source_labels": {
+        "plantvillage": [
+          "Tomato___Septoria_leaf_spot"
+        ]
+      }
+    },
+    {
+      "index": 33,
+      "key": "Tomato___Spider_mites Two-spotted_spider_mite",
+      "group": "plantvillage",
+      "plant": "Tomato",
+      "condition": "Spider Mites (Two-spotted Spider Mite)",
+      "display_name": "Tomato — Spider Mites (Two-spotted Spider Mite)",
+      "is_healthy": false,
+      "source_labels": {
+        "plantvillage": [
+          "Tomato___Spider_mites Two-spotted_spider_mite"
+        ]
+      }
+    },
+    {
+      "index": 34,
+      "key": "Tomato___Target_Spot",
+      "group": "plantvillage",
+      "plant": "Tomato",
+      "condition": "Target Spot",
+      "display_name": "Tomato — Target Spot",
+      "is_healthy": false,
+      "source_labels": {
+        "plantvillage": [
+          "Tomato___Target_Spot"
+        ]
+      }
+    },
+    {
+      "index": 35,
+      "key": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+      "group": "plantvillage",
+      "plant": "Tomato",
+      "condition": "Tomato Yellow Leaf Curl Virus",
+      "display_name": "Tomato — Tomato Yellow Leaf Curl Virus",
+      "is_healthy": false,
+      "source_labels": {
+        "plantvillage": [
+          "Tomato___Tomato_Yellow_Leaf_Curl_Virus"
+        ]
+      }
+    },
+    {
+      "index": 36,
+      "key": "Tomato___Tomato_mosaic_virus",
+      "group": "plantvillage",
+      "plant": "Tomato",
+      "condition": "Tomato Mosaic Virus",
+      "display_name": "Tomato — Tomato Mosaic Virus",
+      "is_healthy": false,
+      "source_labels": {
+        "plantvillage": [
+          "Tomato___Tomato_mosaic_virus"
+        ]
+      }
+    },
+    {
+      "index": 37,
+      "key": "Tomato___healthy",
+      "group": "plantvillage",
+      "plant": "Tomato",
+      "condition": "Healthy",
+      "display_name": "Tomato — Healthy",
+      "is_healthy": true,
+      "source_labels": {
+        "plantvillage": [
+          "Tomato___healthy"
+        ]
+      }
+    },
+    {
+      "index": 38,
+      "key": "Wheat___healthy",
+      "group": "wheat",
+      "plant": "Wheat",
+      "condition": "Healthy",
+      "display_name": "Wheat — Healthy",
+      "is_healthy": true,
+      "source_labels": {
+        "wheat_wfd": [
+          "healthy",
+          "healthy_wheat",
+          "wheat_healthy",
+          "health"
+        ],
+        "wheat_long_2023": [
+          "healthy"
+        ]
+      }
+    },
+    {
+      "index": 39,
+      "key": "Wheat___Leaf_rust",
+      "group": "wheat",
+      "plant": "Wheat",
+      "condition": "Leaf Rust",
+      "display_name": "Wheat — Leaf Rust",
+      "is_healthy": false,
+      "source_labels": {
+        "wheat_wfd": [
+          "leaf_rust",
+          "wheat_leaf_rust",
+          "brown_rust",
+          "wheat_brown_rust"
+        ],
+        "wheat_long_2023": [
+          "brownrust"
+        ]
+      }
+    },
+    {
+      "index": 40,
+      "key": "Wheat___Stripe_rust",
+      "group": "wheat",
+      "plant": "Wheat",
+      "condition": "Stripe Rust (Yellow Rust)",
+      "display_name": "Wheat — Stripe Rust (Yellow Rust)",
+      "is_healthy": false,
+      "source_labels": {
+        "wheat_wfd": [
+          "stripe_rust",
+          "yellow_rust",
+          "wheat_stripe_rust",
+          "wheat_yellow_rust",
+          "stripe_yellow_rust"
+        ],
+        "wheat_long_2023": [
+          "yellowrust"
+        ]
+      }
+    },
+    {
+      "index": 41,
+      "key": "Wheat___Powdery_mildew",
+      "group": "wheat",
+      "plant": "Wheat",
+      "condition": "Powdery Mildew",
+      "display_name": "Wheat — Powdery Mildew",
+      "is_healthy": false,
+      "source_labels": {
+        "wheat_wfd": [
+          "powdery_mildew",
+          "wheat_powdery_mildew"
+        ],
+        "wheat_long_2023": [
+          "mildew"
+        ]
+      }
+    },
+    {
+      "index": 42,
+      "key": "Rice___healthy",
+      "group": "rice",
+      "plant": "Rice",
+      "condition": "Healthy",
+      "display_name": "Rice — Healthy",
+      "is_healthy": true,
+      "source_labels": {
+        "rice_mendeley": [
+          "healthy",
+          "healthy_rice",
+          "rice_healthy",
+          "normal"
+        ]
+      }
+    },
+    {
+      "index": 43,
+      "key": "Rice___Blast",
+      "group": "rice",
+      "plant": "Rice",
+      "condition": "Blast",
+      "display_name": "Rice — Blast",
+      "is_healthy": false,
+      "source_labels": {
+        "rice_mendeley": [
+          "blast",
+          "rice_blast",
+          "leaf_blast",
+          "rice_leaf_blast"
+        ]
+      }
+    },
+    {
+      "index": 44,
+      "key": "Rice___Bacterial_leaf_blight",
+      "group": "rice",
+      "plant": "Rice",
+      "condition": "Bacterial Leaf Blight",
+      "display_name": "Rice — Bacterial Leaf Blight",
+      "is_healthy": false,
+      "source_labels": {
+        "rice_mendeley": [
+          "bacterial_leaf_blight",
+          "bacterial_blight",
+          "blb",
+          "rice_bacterial_leaf_blight"
+        ]
+      }
+    },
+    {
+      "index": 45,
+      "key": "Rice___Brown_spot",
+      "group": "rice",
+      "plant": "Rice",
+      "condition": "Brown Spot",
+      "display_name": "Rice — Brown Spot",
+      "is_healthy": false,
+      "source_labels": {
+        "rice_mendeley": [
+          "brown_spot",
+          "rice_brown_spot"
+        ]
+      }
+    }
+  ]
+}

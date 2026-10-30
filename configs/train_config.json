@@ -1,0 +1,34 @@
+{
+  "_comment": "Training presets. 'lightweight' is meant for a student laptop CPU: it caps the number of TRAINING images per class (validation/test sets are never subsampled) and trains for few epochs. 'standard' uses everything. Override any value on the command line.",
+  "default_preset": "lightweight",
+  "presets": {
+    "lightweight": {
+      "architecture": "mobilenetv2",
+      "image_size": 224,
+      "batch_size": 32,
+      "head_epochs": 4,
+      "finetune_epochs": 2,
+      "finetune_layers": 30,
+      "head_learning_rate": 0.001,
+      "finetune_learning_rate": 0.00001,
+      "max_train_per_class": 300,
+      "class_weight": "balanced",
+      "early_stopping_patience": 2,
+      "dropout": 0.3
+    },
+    "standard": {
+      "architecture": "mobilenetv2",
+      "image_size": 224,
+      "batch_size": 32,
+      "head_epochs": 8,
+      "finetune_epochs": 8,
+      "finetune_layers": 40,
+      "head_learning_rate": 0.001,
+      "finetune_learning_rate": 0.00001,
+      "max_train_per_class": null,
+      "class_weight": "balanced",
+      "early_stopping_patience": 3,
+      "dropout": 0.3
+    }
+  }
+}

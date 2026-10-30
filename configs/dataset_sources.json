@@ -1,0 +1,99 @@
+{
+  "version": "1.0.0",
+  "_comment": "Registry of candidate dataset sources. 'labels_confirmed' means a human has checked the source's real class folders against configs/class_mapping.json; non-PlantVillage sources start unconfirmed and are skipped by preprocessing until confirmed (see README, 'Wheat and rice data'). Licence fields are what could be established; ALWAYS read the source's own terms before use or redistribution.",
+  "sources": {
+    "plantvillage": {
+      "name": "PlantVillage (colour images, 38 classes)",
+      "raw_subdir": "plantvillage",
+      "method": "git_sparse",
+      "repo_url": "https://github.com/spMohanty/PlantVillage-Dataset.git",
+      "pinned_commit": "7f7ecc7e1eaca78107e3affe7cb5abd9427e139a",
+      "sparse_path": "raw/color",
+      "landing_url": "https://github.com/spMohanty/PlantVillage-Dataset",
+      "expected_class_folders": 38,
+      "expected_images": 54305,
+      "labels_confirmed": true,
+      "labels_confirmed_note": "Verified 2026-10-29 by listing the 38 folders under raw/color at the pinned commit; they equal the 38 PlantVillage class keys in class_mapping.json exactly (54,305 files).",
+      "license": "The GitHub repository contains no LICENSE file; it describes the data as an open-access research dataset and asks for citation (CITATION.cff). Check the terms on the landing page before redistributing.",
+      "citation": "Mohanty SP, Hughes DP, Salathe M (2016). Using Deep Learning for Image-Based Plant Disease Detection. Frontiers in Plant Science 7:1419. doi:10.3389/fpls.2016.01419",
+      "manual_instructions": [
+        "Alternative if git is unavailable: download the colour PlantVillage images (for example the Kaggle dataset 'abdallahalidev/plantvillage-dataset', which needs a free Kaggle login and acceptance of its terms).",
+        "Then run:  python -m src.data_download ingest --source plantvillage --archive C:\\path\\to\\plantvillage-dataset.zip",
+        "Only the COLOUR images are used; 'grayscale' and 'segmented' folders are ignored automatically.",
+        "Avoid the Kaggle 'New Plant Diseases Dataset (Augmented)': it contains offline-augmented copies of the same photos, which leak between train and validation sets."
+      ]
+    },
+    "wheat_wfd": {
+      "name": "Wheat Fungi Diseases (WFD) dataset",
+      "raw_subdir": "wheat_wfd",
+      "method": "manual",
+      "landing_url": "https://wfd.sysbio.ru/index.html",
+      "expected_class_folders": null,
+      "expected_images": null,
+      "labels_confirmed": false,
+      "license": "UNVERIFIED - read the terms on the dataset's own page before use.",
+      "citation": "See the citation requested on the dataset page.",
+      "manual_instructions": [
+        "1. Open https://wfd.sysbio.ru/index.html in a browser and read the licence / usage terms.",
+        "2. Follow the site's own download procedure (registration or acceptance of terms may be required; this tool never bypasses that).",
+        "3. Extract so that images sit inside folders named after their disease label, e.g. data\\raw\\wheat_wfd\\<label>\\*.jpg  (or run: python -m src.data_download ingest --source wheat_wfd --archive C:\\path\\to\\file.zip).",
+        "4. Run: python -m src.data_download review-labels --source wheat_wfd   and compare the folder names with the documentation.",
+        "5. Only if the labels are justified (e.g. 'brown rust' = leaf rust, 'yellow rust' = stripe rust) run: python -m src.data_download confirm-labels --source wheat_wfd"
+      ]
+    },
+    "wheat_14155": {
+      "name": "Wheat Plant Diseases Dataset (reported 14,155 images; Kaggle-derived)",
+      "raw_subdir": "wheat_14155",
+      "method": "manual",
+      "landing_url": "https://gts.ai/dataset-download/wheat-plant-diseases-dataset/",
+      "expected_class_folders": null,
+      "expected_images": null,
+      "labels_confirmed": false,
+      "license": "UNVERIFIED - the GTS.ai / Zenodo listings only say the data is 'sourced from Kaggle'. Find the ORIGINAL Kaggle dataset page, read its licence and note the uploader before use or redistribution.",
+      "citation": "UNVERIFIED - cite the original Kaggle dataset (uploader and title) once identified.",
+      "manual_instructions": [
+        "1. Identify the original Kaggle dataset behind the 14,155-image 'Wheat Plant Diseases Dataset' (the GTS.ai page only says 'sourced from Kaggle'); read its licence, class descriptions and whether it contains augmented or merged copies of other datasets.",
+        "2. Download it yourself (free Kaggle login / acceptance of terms is required; this tool never bypasses that).",
+        "3. Extract into data\\raw\\wheat_14155\\ (or run: python -m src.data_download ingest --source wheat_14155 --archive C:\\path\\to\\file.zip). Images must sit in <label>\\*.jpg; the label is the folder that directly contains the image (nested train\\valid\\<label> is fine).",
+        "4. Do NOT mix these images into data\\raw\\wheat_wfd.",
+        "5. Run: python -m src.data_download review-labels --source wheat_14155  - every folder will show 'unknown' until the 'wheat_14155' aliases are added to configs/class_mapping.json (only for labels the dataset documentation supports).",
+        "6. Only after that, run: python -m src.data_download confirm-labels --source wheat_14155"
+      ]
+    },
+    "wheat_long_2023": {
+      "name": "Wheat disease images, small dataset (Long et al. 2023, John Innes Centre; 999 photos)",
+      "raw_subdir": "wheat_long_2023",
+      "method": "manual",
+      "landing_url": "https://zenodo.org/records/7573133",
+      "expected_class_folders": null,
+      "expected_images": 999,
+      "labels_confirmed": false,
+      "license": "CC BY 4.0 (Zenodo record 10.5281/zenodo.7573133). Attribution required. Not the official WFD2020 dataset.",
+      "citation": "Long MC, Hartley M, Morris RJ, Brown JKM (2023). Wheat disease images (small dataset). Zenodo. doi:10.5281/zenodo.7573133. Described in Plant Pathology 2023, doi:10.1111/ppa.13684.",
+      "manual_instructions": [
+        "1. Download 'Long 2023 Plant Path 999 photos.zip' from https://zenodo.org/records/7573133 (md5 1f8a7c660c2da137b957fb4edee3dd7d).",
+        "2. Run: python -m src.data_download ingest --source wheat_long_2023 --archive C:\\path\\to\\Long 2023 Plant Path 999 photos.zip",
+        "3. Run: python -m src.data_download review-labels --source wheat_long_2023   and compare with the record/paper (healthy, brown rust, yellow rust, mildew, septoria).",
+        "4. Only if correct run: python -m src.data_download confirm-labels --source wheat_long_2023",
+        "5. Septoria has no canonical class and is excluded (listed in known_unsupported_source_labels)."
+      ]
+    },
+    "rice_mendeley": {
+      "name": "Rice Leaf Disease Image Dataset (Mendeley Data n8jpkpfz5p v1)",
+      "raw_subdir": "rice_mendeley",
+      "method": "manual",
+      "landing_url": "https://data.mendeley.com/datasets/n8jpkpfz5p/1",
+      "expected_class_folders": null,
+      "expected_images": null,
+      "labels_confirmed": false,
+      "license": "UNVERIFIED - the licence is shown on the Mendeley Data page; read it before use.",
+      "citation": "See the 'Cite this dataset' section on the Mendeley Data page.",
+      "manual_instructions": [
+        "1. Open https://data.mendeley.com/datasets/n8jpkpfz5p/1 in a browser, read the licence and click Download.",
+        "2. Extract so that images sit inside folders named after their disease label, e.g. data\\raw\\rice_mendeley\\<label>\\*.jpg  (or run: python -m src.data_download ingest --source rice_mendeley --archive C:\\path\\to\\file.zip).",
+        "3. Run: python -m src.data_download review-labels --source rice_mendeley   and compare folder names with the dataset description.",
+        "4. Only when satisfied, run: python -m src.data_download confirm-labels --source rice_mendeley"
+      ]
+    }
+  }
+}

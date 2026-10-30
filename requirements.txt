@@ -1,0 +1,14 @@
+# Tested environment: Linux x86-64, Python 3.12.3, tensorflow-cpu 2.21.0, keras 3.15.1, streamlit 1.66.1,
+# google-genai 2.33.0 (see README, "Tested environment"). The ranges below are what that run was built from;
+# Python 3.10-3.12 is the intended range, but only 3.12.3 was actually exercised.
+# On Windows install the normal CPU package "tensorflow" (listed here). GPU training on native Windows is not
+# supported by TensorFlow >= 2.11; use WSL2 for a GPU.
+tensorflow>=2.16,<2.22
+numpy>=1.26,<2.6
+Pillow>=10.3,<14
+matplotlib>=3.8,<4
+scikit-learn>=1.4,<2
+streamlit>=1.40,<2
+google-genai>=1.0,<3
+python-dotenv>=1.0,<2
+pytest>=8,<10
